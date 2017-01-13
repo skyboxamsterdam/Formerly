@@ -264,8 +264,6 @@ class Formerly_FormsService extends BaseApplicationComponent
             'name'             => $field->name,
             'handle'           => $field->handle,
             'instructions'     => $field->instructions,
-//            'fieldLabel'       => $field->fieldLabel,
-//            'fieldPlaceholder' => $field->fieldPlaceholder,
         );
 
         switch ($field->type) {
