@@ -73,6 +73,8 @@ class Formerly_SubmissionsController extends BaseController
 
 		$submission->formId = craft()->request->getRequiredPost('formId');
 
+		$currentFormerlyForm = craft()->formerly_forms->getFormById($submission->formId);
+
 		//check file upload for errors, craft will not be happy otherwise
 		$errors = false;
 
@@ -124,7 +126,7 @@ class Formerly_SubmissionsController extends BaseController
 		if (craft()->formerly_submissions->postSubmission($submission))
 		{
 			if (craft()->request->isAjaxRequest())
-				$this->returnJson(array('ok' => 'yes', 'id' => $submission->id));
+				$this->returnJson(array('ok' => 'yes', 'id' => $submission->id, 'message' => $currentFormerlyForm->successMessage));
 			else
 				$this->redirectToPostedUrl($submission);
 		}
