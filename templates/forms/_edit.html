@@ -83,6 +83,24 @@
 				}
 			}) }}
 
+                {{ forms.textField({
+                    label: 'Label'|t,
+                    id: "questions-#{id}-label",
+                    name: "questions[#{id}][fieldLabel]",
+                    instructions: "If the label for your question is larger than 50 characters keep the name short and enter the full label here",
+                    value: question ? question.fieldLabel,
+                    errors: question ? question.getErrors('fieldLabel')
+                }) }}
+
+                {{ forms.textField({
+                    label: 'Placeholder'|t,
+                    id: "questions-#{id}-placeholder",
+                    name: "questions[#{id}][fieldPlaceholder]",
+                    instructions: "If the placeholder for your question is larger than 50 characters keep the name short and enter the full label here",
+                    value: question ? question.fieldPlaceholder,
+                    errors: question ? question.getErrors('fieldPlaceholder')
+                }) }}
+
 				{{ forms.textField({
 					label: 'Instructions'|t,
 					id: "questions-#{id}-instructions",
@@ -182,6 +200,8 @@
 			translatable: true
 		}) }}
 
+
+
 		{{ forms.textField({
 			label: 'Handle'|t,
 			instructions: 'How you’ll refer to this form in the templates.'|t,
@@ -192,6 +212,18 @@
 			errors: form.getErrors('handle'),
 			required: true
 		}) }}
+
+		{{ forms.textField({
+		label: '"Thank you" Message'|t,
+		instructions: 'This message will be shown when a form has been successful submitted'|t,
+		id: 'successMessage',
+		class: 'code',
+		name: 'successMessage',
+		value: form.successMessage,
+		errors: form.getErrors('successMessage'),
+		required: false
+		}) }}
+
 
 		<hr>
 

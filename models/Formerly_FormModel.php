@@ -10,6 +10,7 @@ class Formerly_FormModel extends BaseModel
 			'fieldGroupId'  => AttributeType::Number,
 			'name'          => AttributeType::String,
 			'instructions'  => AttributeType::String,
+			'successMessage'   => AttributeType::String,
 			'handle'        => AttributeType::String,
 			'emails'        => AttributeType::Mixed,
 		);
