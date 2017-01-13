@@ -104,6 +104,7 @@ class Formerly_FormsController extends BaseController
 		$form->name    = craft()->request->getPost('name');
 		$form->handle  = craft()->request->getPost('handle');
 		$form->emails  = craft()->request->getPost('emails');
+		$form->successMessage  = craft()->request->getPost('successMessage');
 
 		$postedQuestions = craft()->request->getPost('questions');
 		$sortOrder = 0;
@@ -127,6 +128,8 @@ class Formerly_FormsController extends BaseController
 				$question->sortOrder 	= ++$sortOrder;
 				$question->errorMessage =  $postedQuestion['errorMessage'];
 				$question->validationPattern =  $postedQuestion['validationPattern'];
+				$question->fieldLabel =  $postedQuestion['fieldLabel'];
+				$question->fieldPlaceholder =  $postedQuestion['fieldPlaceholder'];
 
 
 				if (isset($postedQuestion['options']))
