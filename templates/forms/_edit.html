@@ -233,6 +233,10 @@
 			id: 'emails',
 			name: 'emails',
 			cols: {
+				template: {
+					heading: 'Template path',
+					type: 'singleline'
+				},
 				to: {
 					heading: 'To',
 					type: 'singleline'
@@ -248,7 +252,7 @@
 				body: {
 					heading: 'Body',
 					type: 'multiline'
-				},
+				}
 			},
 			rows: form ? form.emails
 		}) }}
