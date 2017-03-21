@@ -197,7 +197,9 @@ class Formerly_SubmissionsService extends BaseApplicationComponent
 
 				if (!empty($emailDef['body']))
 				{
-					$email->body     = $this->_renderSubmissionTemplate($emailDef['body'], $submission);
+				    $preRender = $this->_renderSubmissionTemplate($emailDef['body'], $submission);
+				    $rendered = (craft()->templates->render($emailDef['template'], ['body'=>$preRender]));
+                    $email->body     = ( $rendered !== false) ? $rendered : $preRender;
 					$email->htmlBody = $email->body;
 				}
 				else
@@ -277,7 +279,6 @@ class Formerly_SubmissionsService extends BaseApplicationComponent
 		$siteUrl = craft()->config->get("siteUrl");
 		if (is_array($siteUrl) && count($siteUrl) > 0) $result = str_replace("{siteUrl}", $siteUrl[CRAFT_LOCALE], $result);
 		else $result = str_replace("{siteUrl}", $siteUrl, $result);
-
 
 		return $result;
 	}

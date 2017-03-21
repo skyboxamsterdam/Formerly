@@ -55,8 +55,9 @@ regular `ElementCriteriaModel`s. For example, to list submissions to the
 ```
 
 ## Updates
-* 1.5.2 
+* 1.5.2
   * Added setting fields for Questions; Label and Placeholder can be added per Question field. Also a custom thank you message will be returned after a successful submit
+  * Each e-mail type can use a different template
 * 1.5.1
   * Fix email template submission so twig filters can be used. This helps with a lot of reported issues. You can now format dates the way you want. And also output multi value fields like checkbox lists using {mycheckboxlist|join(',')}
 * 1.5.0

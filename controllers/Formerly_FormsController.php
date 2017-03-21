@@ -38,12 +38,14 @@ class Formerly_FormsController extends BaseController
 				$form = new Formerly_FormModel();
 				$form->emails = array(
 					array(
+						'template'=> 'formerly/_emails/default',
 						'to'      => '{email}',
 						'from'    => $user->email,
 						'subject' => 'Thank you for your enquiry',
 						'body'    => "<p>Hi {name},</p>\n<p>Thanks for your enquiry! We'll get back to you shortly.</p>\n<p>$user->name</p>",
 					),
 					array(
+                        'template'=> 'formerly/_emails/default',
 						'to'      => $user->email,
 						'from'    => '{email}',
 						'subject' => 'Website enquiry',
