@@ -173,6 +173,7 @@ class Formerly_SubmissionsService extends BaseApplicationComponent
 
 				$email = new EmailModel();
 				$email->toEmail = $this->_renderSubmissionTemplate($emailDef['to'], $submission);
+				$email->replyTo = $this->_renderSubmissionTemplate($emailDef['replyto'], $submission);
 				$email->subject = !empty($emailDef['subject']) ? $this->_renderSubmissionTemplate($emailDef['subject'], $submission) : 'Website Enquiry';
 
 				if (!empty($emailDef['from']))
@@ -217,6 +218,7 @@ class Formerly_SubmissionsService extends BaseApplicationComponent
 						$file = $writeEmailToFilePath . '/form-' . $form->id . '-submission-' . $submission->id . '.json';
 						$jsonEmail = new \StdClass();
 						$jsonEmail->toEmail = $email->toEmail;
+						$jsonEmail->replyTo = $email->replyTo;
 						$jsonEmail->fromName = $email->fromName;
 						$jsonEmail->fromEmail = $email->fromEmail;
 						$jsonEmail->subject = $email->subject;
